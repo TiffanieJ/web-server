@@ -3,17 +3,10 @@ var app = express();
 var PORT = 3000;
 //(req,res,next) --order matters
 // logger logs out GET request
-var middleware = {
-	requireAuthentication: function (req,res,next) {
-		//console.log('private route hit!');
-		next();
-	},
-	logger: function (req,res,next) {
-		console.log('Request: '+req.method + req.originalUrl + new Date().toString());
-		next();
 
-	}
-};
+var middleware = require('./middleware.js');
+
+
 //order is importsant put middleware up top
 //app.use(middleware.requireAuthentication);
 
